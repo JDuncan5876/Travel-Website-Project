@@ -1,0 +1,79 @@
+<html>
+	<head>
+
+		<!-- include our libraries and css files -->
+
+		<link href="{{ url_for('static',filename='bootstrap.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static',filename='gallery.css') }}" rel="stylesheet">
+		<title>Trip</title>
+		<div class="page-header">
+			<h1 class = "push-left">Trip Planner</h1>
+		</div>
+	</head>
+
+<img src='https://s-media-cache-ak0.pinimg.com/736x/58/47/29/5847294659e93fe3ed6106ef48b374d9.jpg' style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
+	<body>
+		<nav class = "navbar navbar-default">
+		<div class = "container">
+			<ul class="nav navbar-nav">
+          		<li role="" id="detailsbtn"><a href="user">Home</a></li>
+          		<li role="" id="detailsbtn"><a href="reviews">View Reviews</a></li>
+    		</ul>
+    	</div>
+    	</nav>
+		<h2 class = "text-center">Select an Attraction to Add to your Trip</h2>
+		<div class = "table-responsive">
+			<table class = "table">
+				<thead>
+					<tr>
+						<th>Name</th>
+				        <th>City</th>
+				        <th>Country</th>
+				        <th>Description</th>
+				        <th>Price</th>
+				        <th>Capacity</th>
+				        <th>Date</th>
+				        <th>Requires Reservation?</th>
+				        <th>Nearest Public Transport</th>
+				        <th>Number in Party</th>
+				        <th>Add to Trip</th>
+					</tr>
+				</thead>
+	            <form action="" method = "post">
+				<tbody>
+					{% for activity in attractions %}
+					
+						<tr>
+
+							<th>{{activity[0]}}</th>
+							<th>{{activity[1]}} </th>
+							<th>{{activity[2]}}</th>
+							<th>{{activity[3]}}</th>
+							<th>{{activity[4]}}</th>
+							<th>{{activity[6]}}</th>
+							<th>
+								<input type="datetime-local" class="form-control" placeholder="" name="date_{{ loop.index }}" value = "">	
+							</th>
+							<th>{{activity[5]}}</th>
+							<th>{{activity[7]}}</th>
+							<th>
+								<input type="number" class="form-control" placeholder="" name="party_{{ loop.index }}" value = "">	
+							</th>
+							<th><div class="checkbox">
+								  <label><input type="checkbox" name = "activity" value="{{activity[0]}}"></label>
+								</div></th>
+						</tr>
+					{% endfor %}
+				</tbody>
+				<h2 class = "text-center">Make sure to register a credit card before planning a trip!</h2>
+					<input class = "btn btn-primary" type="submit">
+				
+				</form>
+
+
+			
+		</div>
+
+	</body>
+
+</html>

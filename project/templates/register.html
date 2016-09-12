@@ -1,0 +1,56 @@
+<html>
+	<head>
+
+		<!-- include our libraries and css files -->
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/handlebars-v3.0.3.js"></script>
+
+		<script src="js/bootstrap.min.js"></script>
+
+		<link href="{{ url_for('static',filename='bootstrap.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static',filename='gallery.css') }}" rel="stylesheet">
+		<title>Registration</title>
+		<div class="page-header">
+			<h1 class = "white-text push-left">New User Registration</h1>
+		</div>
+	</head>
+
+	<body>
+	<img src='https://images5.alphacoders.com/311/311151.jpg' style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
+		<div class = "container">
+			<ul class="white-text nav nav-tabs">
+          		<li role="" id="detailsbtn"><a href="/">Back to Login Page</a></li>
+    		</ul>
+    	</div>
+		<h2 class = "white-text text-center">Please enter information into all fields below:</h2>
+		<div class = "col-md-4"></div>
+      	<div class="rcorner2 navbar-form navbar-mid col-md-4">
+      		<form action="" class = "navbar-form navbar-left" method = 'post'>
+      		<p class = "white-text">First Name:</p>
+      		<input type="text" class="form-control" placeholder="first name" name="Fname" value = "{{request.form.Fname}}"><br>
+      		<p class = "white-text">Last Name:</p>
+      		<input type="text" class="form-control" placeholder="last name" name="Lname" value = "{{request.form.Lname}}"><br>
+      		<p class = "white-text">Email:</p>
+      		<input type="email" class="form-control" placeholder="email" name="email" value = "{{request.form.email}}"><br>
+  			<p class = "white-text">Password:</p>
+  			<input type="password" class="form-control" placeholder="password" name="password" value = "{{request.form.password}}"><br>
+  			<p class = "white-text">Address:</p>
+  			<input type="text" class="form-control" placeholder="address" name="address" value = "{{request.form.address}}"><br>
+  			<p class = "white-text">Address2:</p>
+  			<input type="text" class="form-control" placeholder="address2" name="address2" value = "{{request.form.address2}}"><br>
+  			<p class = "white-text">City:</p>
+  			<input type="text" class="form-control" placeholder="city" name="city" value = "{{request.form.city}}"><br>
+  			<p class = "white-text">Zip Code:</p>
+  			<input type="text" class="form-control" placeholder="zipcode" name="zipcode" value = "{{request.form.zipcode}}"><br>
+  			<p class = "white-text">Country:</p>
+  			<input type="text" class="form-control" placeholder="country" name="country" value = "{{request.form.country}}"><br>
+  			<br>
+        <a href = "user">
+  			<input class = " btn btn-primary" type="submit" value="Register">
+        </a>
+			</form>
+		</div>
+		<div class = "col-mid-4"></div>
+	</body>
+
+</html>

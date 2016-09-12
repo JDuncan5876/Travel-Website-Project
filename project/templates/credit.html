@@ -1,0 +1,57 @@
+<html>
+	<head>
+
+		<!-- include our libraries and css files -->
+		<link href="{{ url_for('static',filename='bootstrap.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static',filename='gallery.css') }}" rel="stylesheet">
+    <img src='https://s-media-cache-ak0.pinimg.com/736x/58/47/29/5847294659e93fe3ed6106ef48b374d9.jpg' style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
+		<title>Credit Card</title>
+		<div class="page-header">
+			<h1>Register a Credit Card</h1>
+		</div>
+	</head>
+
+	<body>
+		  <nav class = "navbar navbar-default">
+      <div class = "container">
+      <ul class="nav navbar-nav">
+              <li role="" id="detailsbtn"><a href="user">Home</a></li>
+        </ul>
+      </div>
+      </nav>
+		<h2 class = "text-center">Please enter information into all fields below:</h2>
+		<div class = "col-md-4"></div>
+      	<div class="rcorner3 navbar-form navbar-mid col-md-4">
+        
+      		<form action="" class = "navbar-form navbar-left" method = 'post'>
+      		<p>First Name (As appears on Card):</p>
+      		<input type="text" class="form-control" placeholder="first name" name="Fname" value = "{{request.form.Fname}}"><br>
+      		<p>Last Name (As appears on Card):</p>
+      		<input type="text" class="form-control" placeholder="last name" name="Lname" value = "{{request.form.Lname}}"><br>
+      		<p>Email:</p>
+      		<input type="email" class="form-control" placeholder="email" name="email" value = "{{request.form.email}}"><br>
+  		  	<p>Card Number:</p>
+    			<input type="text" class="form-control" placeholder="#" name="cardnum"  value = "{{request.form.cardnum}}"><br>
+    			<p>Security Number:</p>
+    			<input type="password" class="form-control" placeholder="CVV" name="securitynum" value = "{{request.form.securitynum}}"><br>
+    			<p>Expiry Date (MM/YYYY):</p>
+    			<input type="text" class="form-control" name="expirydate" value = "{{request.form.expirydate}}"><br>
+    		  <p>Billing Address:</p>
+    	  	<input type="text" class="form-control" placeholder="address" name="address" value = "{{request.form.address}}"><br>
+    			<p>Billing Address2:</p>
+    			<input type="text" class="form-control" placeholder="address2" name="address2" value = "{{request.form.address2}}"><br>
+    			<p>City:</p>
+    			<input type="text" class="form-control" placeholder="city" name="city" value = "{{request.form.city}}"><br>
+    			<p>Zip Code:</p>
+    			<input type="text" class="form-control" placeholder="zipcode" name="zipcode" value = "{{request.form.zipcode}}"><br>
+    			<p>Country:</p>
+    			<input type="text" class="form-control" placeholder="country" name="country" value = "{{request.form.country}}"><br>
+ 
+  			<br>
+  			<input class = " btn btn-primary" type="submit" value="Credit">
+			</form>
+		</div>
+		<div class = "col-mid-4"></div>
+	</body>
+
+</html>

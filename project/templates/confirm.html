@@ -1,0 +1,45 @@
+<html>
+	<head>
+
+		<!-- include our libraries and css files -->
+
+		<link href="{{ url_for('static',filename='bootstrap.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static',filename='gallery.css') }}" rel="stylesheet">
+		<title>Confirm</title>
+		<img src='https://s-media-cache-ak0.pinimg.com/736x/58/47/29/5847294659e93fe3ed6106ef48b374d9.jpg' style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
+		<div class="page-header">
+			<h1 class = "push-left">View Itinerary</h1>
+		</div>
+	</head>
+
+	<body>
+		<nav class = "navbar navbar-default">
+		<div class = "container">
+			<ul class="nav navbar-nav">
+          		<li role="" id="detailsbtn"><a href="trip">Back to Trip</a></li>
+    		</ul>
+    	</div>
+    	</nav>
+		<h2 class = "text-center">Review your Trip Information </h2>
+		<div class = "table-responsive">
+			<table class = "table">
+				<thead>
+					<tr>
+						<th>Trip ID</th>
+				        <th>City</th>
+				        <th>Unbook</th>					        
+					</tr>
+				</thead>
+				<tbody method = "get">
+					{% for trip in trip_list %}
+						<tr>
+							<th>{{trip[0]}}</th>
+							<th>{{trip[1]}}</th>	
+							<th><form action="/unbook/{{trip[0]}}"method = "post"><button type="submit" name = "Unbook" value="{{request.form.unbook}}" class = "btn btn-danger"/>Unbook</button></form></th>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

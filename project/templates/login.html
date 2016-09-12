@@ -1,0 +1,40 @@
+<html>
+
+	<head>
+
+		<!-- include our libraries and css files -->
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/handlebars-v3.0.3.js"></script>
+
+		<script src="js/bootstrap.min.js"></script>
+
+		<link href="{{ url_for('static',filename='bootstrap.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static',filename='gallery.css') }}" rel="stylesheet">
+		<title>User Login</title>
+		<div class="page-header">
+			<h1 class = "white-text push-left">User Login</h1>
+		</div>
+	</head>
+
+	<body>
+	<img src='https://images5.alphacoders.com/311/311151.jpg' style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
+		<h2 class = "white-text text-center">Please enter your login below, or register a new account to get started</h2>
+		<div class = "col-md-4">
+		</div>
+      	<div class="rcorner1 navbar-form navbar-mid col-md-4">
+
+      		<form action="" class = "navbar-form navbar-left" method = 'post'>
+  			
+  			<input type="text" class="form-control" placeholder="username" name="username"  value = "{{request.form.username}}"><br>
+  			
+  			<input type="password" class="form-control" placeholder="password" name="password" value = "{{request.form.password}}"><br>
+  			<br>
+  			<input class = " btn btn-primary" type="submit" value="Login">
+  			<a class = "text-right btn btn-default" href="register">Register</a>
+			</form>
+		</div>
+		<div class = "col-mid-4"></div>
+		{% extends "layout.html" %}
+	</body>
+
+</html>

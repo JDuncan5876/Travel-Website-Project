@@ -1,0 +1,9 @@
+<!doctype html>
+
+<div class="page">
+{% for message in get_flashed_messages() %}
+<div class="flash modal-content" style = "width: 200px; top: 50px; height: 200px"><p>{{ message }}</p></div>
+{% endfor %}
+{% block body %}{% endblock %}
+ 
+</div>

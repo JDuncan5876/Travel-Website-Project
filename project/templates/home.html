@@ -1,0 +1,33 @@
+<html>
+	<head>
+
+		<!-- include our libraries and css files -->
+
+		<link href="{{ url_for('static',filename='bootstrap.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static',filename='gallery.css') }}" rel="stylesheet">
+		<title>Home</title>
+		<div class="page-header">
+			<h1 class = "push-left">Let's Travel, {{name}}!</h1>
+		</div>
+	</head>
+
+	<body>
+		<img src='http://www.publicdomainpictures.net/pictures/20000/velka/orangeyellow-background-1328283264Q9r.jpg' style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
+		<h2 class = "text-center">Create a Travel Plan or Write a Review</h2>
+		<div class = "container">
+			<div class = "col-md-6">
+				<a href="trip">
+					<img src="http://theunworldlytravelers.com/wp-content/uploads/2015/11/building-your-diabetes-travel-plan.jpg" class = "carousel-img">
+				</a>
+			</div>
+			<div class = "col-md-6">
+				<a href="review">
+					<img src="https://www.atsb.gov.au/media/4174726/Review.jpg" class = "carousel-img">
+				</a>
+			</div>
+		</div>
+		<a href = "credit" class = "btn btn-primary">Add a credit card</a>
+		<a href = "mytrip" class = "btn btn-primary">View Trip Status</a>
+	</body>
+
+</html>

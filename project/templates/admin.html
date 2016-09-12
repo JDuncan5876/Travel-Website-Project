@@ -1,0 +1,123 @@
+<html>
+	<head>
+
+		<!-- include our libraries and css files -->
+
+		<link href="{{ url_for('static',filename='bootstrap.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static',filename='gallery.css') }}" rel="stylesheet">
+		<img src='https://s-media-cache-ak0.pinimg.com/736x/58/47/29/5847294659e93fe3ed6106ef48b374d9.jpg' style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
+		<title>Admin</title>
+		<div class="page-header">
+			<h1 class = "push-left">Admin Workspace for {{name}}</h1>
+		</div>
+	</head>
+	<body>
+		<nav class = "navbar navbar-default">
+		<div class = "container">
+			<ul class="nav navbar-nav">
+          		<li role="" id="detailsbtn"><a href="user">User Home</a></li>
+    		</ul>
+    	</div>
+    	</nav>
+		<h2 class = "text-center">Edit Users and Add Attractions</h2>
+		<div class = "container">
+			<div class = "col-md-8">
+				<h4>Edit Users</h4>
+				<div class = "table-responsive">
+					<table class = "table">
+						<thead>
+							<tr>
+								<th>First Name</th>
+						        <th>Last Name</th>
+						        <th>Email</th>
+						        <th>Delete</th>
+						        <th>Suspend</th>
+						        <th>Unsuspend</th>
+						        <th>Make Admin</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for user in userrows %}
+								<tr>
+									<th>{{user[0]}}</th>
+									<th>{{user[1]}}</th>
+									<th>{{user[2]}}</th>
+									<th><form action="/delete-user/{{user[2]}}"method = "post"><button type="submit" name = "Delete" value="{{request.form.delete}}" class = "btn btn-danger"/>Delete</button></form></th>
+									<th><form action="/suspend-user/{{user[2]}}"method = "post"><button type="submit" name = "Suspend" value="{{request.form.suspend}}" class = "btn btn-warning"/>Suspend</button></form></th>
+									<th><form action="/unsuspend-user/{{user[2]}}"method = "post"><button type="submit" name = "Unsuspend" value="{{request.form.unsuspend}}" class = "btn btn-success"/>Unsuspend</button></form></th>
+									<th><form action="/admin-user/{{user[2]}}"method = "post"><button type="submit" name = "Make_Admin" value="{{request.form.make_admin}}" class = "btn btn-success"/>Make Admin</button></form></th>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+				<a href = "register" class = "btn btn-primary">Register New User</a>
+				<h4>Attraction Roster</h4>
+				<div class = "table-responsive">
+					<table class = "table">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>City</th>
+						        <th>Capacity per Day</th>
+						        
+							</tr>
+						</thead>
+						<tbody>
+							{% for activity in attractions %}
+								<tr>
+									<th>{{activity[0]}}</th>
+									<th>{{activity[1]}}</th>
+									<th>{{activity[2]}}</th>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class = "col-md-4">
+				<h4>Add Attractions</h4>
+				<form action="" class = "navbar-form navbar-right" method = 'post'>
+	      		<p>Title:</p>
+	      		<input type="text" class="form-control" placeholder="Title" name="title" value = "{{request.form.title}}"><br>
+	      		<p>Address:</p>
+	      		<input type="text" class="form-control" placeholder="Address" name="address" value = "{{request.form.address}}"><br>
+	      		<p>Address 2:</p>
+	      		<input type="text" class="form-control" placeholder="Address2" name="address2" value = "{{request.form.address2}}"><br>
+	      		<p>City:</p>
+	      		<input type="text" class="form-control" placeholder="City" name="city" value = "{{request.form.city}}"><br>
+	  			<p>Zip:</p>
+	  			<input type="number" class="form-control" placeholder="Zip" name="zip"  value = "{{request.form.zip}}"><br>
+	  			<p>Country:</p>
+	  			<input type="text" class="form-control" placeholder="Country" name="country" value = "{{request.form.country}}"><br>
+	      		<p>Description:</p>
+	      		<input type="text" class="form-control" placeholder="What's going on" name="description" value = "{{request.form.description}}"><br>
+	      		<p>Price:</p>
+	      		<input type="number" class="form-control" name="price" value = "{{request.form.price}}"><br>
+	      		<p>Requires Reservation (Yes or No)</p>
+	      		<input type="text" class="form-control" name="reservation" value = "{{request.form.reservation}}"><br>
+	  			<p>Capacity:</p>
+	  			<input type="number" class="form-control" placeholder="Max Cap" name="capacity"  value = "{{request.form.capacity}}"><br>
+	  			<p>Nearest Public Transport:</p>
+	  			<input type="text" class="form-control" placeholder="What's nearby" name="pub_trans" value = "{{request.form.pub_trans}}"><br>
+	  			<p>Public Transport Address:</p>
+	  			<input type="text" class="form-control" placeholder="What's nearby" name="pub_address" value = "{{request.form.pub_address}}"><br>
+	  			<br>
+	  			<p>Public Transport Address 2:</p>
+	  			<input type="text" class="form-control" placeholder="What's nearby" name="pub_address2" value = "{{request.form.pub_address2}}"><br>
+	  			<p>Days Open (please seperate with commas)</p>
+	  			<input type="text" class="form-control" placeholder="Which Days? (1-7) " name="days" value = "{{request.form.days}}"><br>
+	  			<br>
+	  			<p>Opening Time</p>
+	  			<input type="time" class="form-control" placeholder="Opening Time" name="open" value = "{{request.form.open}}"><br>
+	  			<br>
+	  			<p>Closing Time</p>
+	  			<input type="time" class="form-control" placeholder="Closing Time" name="close" value = "{{request.form.close}}"><br>
+	  			<br>
+	  			<input class = "btn btn-primary" type="submit" value="Addition">
+				</form>
+			</div>
+		</div>
+	</body>
+
+</html>

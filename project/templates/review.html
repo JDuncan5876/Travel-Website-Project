@@ -1,0 +1,46 @@
+<html>
+	<head>
+
+		<!-- include our libraries and css files -->
+
+	
+		<link href="{{ url_for('static',filename='bootstrap.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static',filename='gallery.css') }}" rel="stylesheet">
+		<title>Reviews</title>
+		<div class="page-header">
+			<h1 class = "push-left">Reviews</h1>
+		</div>
+	</head>
+
+	<body>
+		<nav class = "navbar navbar-default">
+		<div class = "container">
+			<ul class="nav navbar-nav">
+          		<li role="" id="detailsbtn"><a href="user">Home</a></li>
+    		</ul>
+    	</div>
+    	</nav>
+		<h2 class = "text-center">Select an Attraction to Review</h2>
+		<div class = "well">
+			<div id = "mainViewer">
+				<form action="" method = "post">
+					<img src='https://s-media-cache-ak0.pinimg.com/736x/58/47/29/5847294659e93fe3ed6106ef48b374d9.jpg' style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
+				  <p>Attraction:</p>
+				  <select name="attraction" value = "{{request.form.attraction}}">
+				  {% for activity in attractions %}
+				    <option value="{{activity}}">{{activity}}</option>
+				  {% endfor %}
+				  </select>
+				  <br><br>
+				  <p>Review:</p>
+				  	<input type="text" class="form-control" placeholder="Review Title" name="title"  value = "{{request.form.title}}"><br>
+		  			<input type="text" class="form-control" placeholder="Your thoughts here..." name="review"  value = "{{request.form.review}}"><br>
+				    <input class = " btn btn-primary" type="submit">
+				</form>
+			</div>
+		</div>
+
+	</body>
+
+</html>
+
